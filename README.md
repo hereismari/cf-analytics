@@ -13,6 +13,6 @@ pip install -r requirements.txt
 bower install
 
 # run server
-python app_flask.py
+python flask_app.py
 
 ```
