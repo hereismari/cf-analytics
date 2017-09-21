@@ -1,0 +1,11 @@
+{
+  "name": "cf-analytics",
+  "private": true,
+  "dependencies": {
+    "bower": "^1.8.2"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  }
+}
+
