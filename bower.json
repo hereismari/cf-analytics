@@ -22,6 +22,9 @@
     "angular-css": "^1.0.8",
     "jquery": "^3.2.1",
     "angular-resource": "^1.6.6",
-    "angular-ui-router": "^1.0.6"
+    "angular-ui-router": "^1.0.6",
+    "bulma": "^0.5.3",
+    "font-awesome": "^4.7.0",
+    "google-chart": "^2.0.0"
   }
 }

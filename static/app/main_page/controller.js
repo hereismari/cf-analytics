@@ -1,7 +1,7 @@
-angular.module('app') .controller('controller',
+angular.module('app').controller('controller',
   ['$scope', 'WebRequest', function($scope, WebRequest) {
 
-  var URL = "https://codeforces.com/api/user.info?handles=DmitriyH;Fefer_Ivan";
+  var URL = "http://codeforces.com/api/user.info?handles=DmitriyH;Fefer_Ivan";
   var url_id_promise = WebRequest.get(URL);
 
   $scope.name = "";
