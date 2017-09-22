@@ -10,3 +10,11 @@
 .sample-show-hide.ng-hide {
   opacity: 0;
 }
+
+.error {
+  color: red;
+}
+
+#options-menu {
+    background-color: #f5f5f5;
+}

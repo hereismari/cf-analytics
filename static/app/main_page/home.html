@@ -1,33 +1,28 @@
- <div class="container-fluid">
+<div class="container-fluid">
 
-  <div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
-
-
-
-  <div class="panel panel-success">
-    <div class="panel-heading">
-      <h1 ng-if="name">Hello, {{name}}</h1>
+<!-- options menu -->
+  <div class="box" id="options-menu">
+    <div class="columns">
+      <div class="column">
+        <input class="input handle-input" type="text" placeholder="Codeforces handle" ng-model="handle.username">
+      </div>
+      <div class="column">
+        <p ng-if="handle_error" class="error">{{handle_error}}</>
+      </div>
+      <div class="column is-half">
+        <a class="button is-info" ng-click="get_cf_data()">Get CF data</a>
+      </div>
     </div>
-
-    <div class="panel-body">
-      <form class="form-inline">
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder="Enter your name" autofocus ng-model="name">
-        </div>
-      </form>
-    </div>
-
-	<div ng-init="checked = true">
-		<label>
-			<input type="checkbox" ng-model="checked" />
-			Is visible
+    <label>
+			<input type="checkbox" ng-model="team_submssions" />
+			Consider team submissions
 		</label>
-		<div class="content-area sample-show-hide" ng-show="checked">
-			Content...
-		</div>
-	</div>
+  </div>
 
+  <div ng-if="!loading" google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
+    <div ng-if="loading">
+      <img src="/static/imgs/loading.gif"/>
+  </div>
     <p ng-show="test">{{test}}</p>
-
   </div>
 </div>
