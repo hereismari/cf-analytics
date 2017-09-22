@@ -25,10 +25,8 @@
     <script src='/static/app/directives/menu/menu.js'></script>
     <script src='/static/app/directives/footbar/footbar.js'></script>
     
-    <!-- google chart -->
-    <script src='/static/libs/webcomponentsjs/webcomponents-lite.js'></script>
-    <link rel='import' href='/static/libs/polymer/polymer.html'></script>
-    <link rel='import' href='/static/libs/google-chart/google-chart.html'></script>
+    <!-- angular google chart -->
+    <script src='/static/libs/angular-google-chart/ng-google-chart.js'></script>
 
     <!-- bulma css -->
     <link rel='stylesheet' href='/static/libs/bulma/css/bulma.css'></link>
@@ -45,11 +43,6 @@
     <!-- menu angular directive -->
     <menu></menu>
 
-    <google-chart
-      cols='[{"label": "Data", "type": "string"}, {"label": "Num", "type": "number"}]'
-        rows='[["Something", 1]]'>
-    </google-chart>
- 
     <!-- angular view -->
    <div class='container' ui-view>
    </div>
