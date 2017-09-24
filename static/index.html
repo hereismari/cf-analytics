@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>CF Analytics</title>
-    
-    <base href='/'>    
+
+    <base href='/'>
     <link rel='shortcut icon' href='/favicon.ico'>
 
     <!-- dependencies -->
@@ -15,7 +15,7 @@
     <script src='/static/libs/angular-resource/angular-resource.js'></script>
     <script src='/static/libs/angular-route/angular-route.js'></script>
     <script src='/static/libs/angular-animate/angular-animate.js'></script>
- 
+
     <!-- angular app -->
     <script src='/static/app/app.js'></script>
     <!-- angular controllers -->
@@ -24,7 +24,7 @@
     <script src='/static/app/services/WebRequest.js'></script>
     <script src='/static/app/directives/menu/menu.js'></script>
     <script src='/static/app/directives/footbar/footbar.js'></script>
-    
+
     <!-- angular google chart -->
     <script src='/static/libs/angular-google-chart/ng-google-chart.js'></script>
 
@@ -38,16 +38,16 @@
     <link rel='stylesheet' href='/static/app/main_page/style.css'></link>
   </head>
 
-  <body ng-app="app">
+  <body ng-app="app" class="site">
 
     <!-- menu angular directive -->
     <menu></menu>
 
     <!-- angular view -->
-   <div class='container' ui-view>
+   <div class='container site-content' ui-view>
    </div>
- 
-    <!-- footbar angular directive --> 
+
+    <!-- footbar angular directive -->
     <footbar></footbar>
 
   </body>

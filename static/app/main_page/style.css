@@ -1,20 +1,33 @@
-.content-area {
-  border: 1px solid black;
-  margin-top: 10px;
-  padding: 10px;
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-.sample-show-hide {
-  transition: all linear 0.5s;
+.site-content {
+  flex: 1;
 }
-.sample-show-hide.ng-hide {
-  opacity: 0;
+
+.section-title {
+  font-size: 30px;
+}
+
+.title {
+  font-size: 15px;
 }
 
 .error {
   color: red;
 }
 
+.top-space {
+  margin-top: 2%;
+}
+
+.white-background {
+  background-color: white;
+}
+
 #options-menu {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }

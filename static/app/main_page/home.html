@@ -1,28 +1,109 @@
 <div class="container-fluid">
 
-<!-- options menu -->
-  <div class="box" id="options-menu">
-    <div class="columns">
-      <div class="column">
-        <input class="input handle-input" type="text" placeholder="Codeforces handle" ng-model="handle.username">
-      </div>
-      <div class="column">
-        <p ng-if="handle_error" class="error">{{handle_error}}</>
-      </div>
-      <div class="column is-half">
-        <a class="button is-info" ng-click="get_cf_data()">Get CF data</a>
-      </div>
+  <!-- codeforces handle box -->
+  <div class="container">
+   <div class="columns is-vcentered">
+     <div class="column is-4 is-offset-4">
+       <div class="box" id="options-menu">
+         <div class="label">
+           <input class="input handle-input" type="text" placeholder="Codeforces handle" ng-model="handle.username"/>
+         </div>
+         <div class="label">
+           <p ng-if="handle_error" class="error">{{handle_error}}</p>
+         </div>
+         <div class="label">
+           <a class="button is-info" ng-click="get_cf_data()">Get CF data</a>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+  <!-- charts -->
+  <div class="container top-space" ng-if="loading">
+    <div  class="has-text-centered">
+     <a class="button is-info is-loading">Loading</a>
+     <p>Getting data from Codeforces API...</p>
     </div>
-    <label>
-			<input type="checkbox" ng-model="team_submssions" />
-			Consider team submissions
-		</label>
   </div>
 
-  <div ng-if="!loading" google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
-    <div ng-if="loading">
-      <img src="/static/imgs/loading.gif"/>
-  </div>
-    <p ng-show="test">{{test}}</p>
-  </div>
+  <section class="hero" ng-if="loaded">
+    <div class="hero-body">
+      <div class="container">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Number of submissions</p>
+              <p class="section-title">{{handle["total_subs"]}}</p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Tried</p>
+              <p class="section-title">{{tried}}</p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Solved</p>
+              <p class="section-title">{{handle["total_verdict"]["OK"]}}</p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Solved at first try</p>
+              <p class="section-title">{{handle["first_try"].length}}</p>
+            </div>
+          </div>
+        </nav>
+
+        <div class="container">
+          <section class="section">
+            <div class="container">
+
+              <h1 class="section-title">Submissions metrics</h1>
+              <h2 class="subtitle">
+                These are metrics from <strong>all</strong> CF submissions by {{handle["username"]}}.
+              </h2>
+
+              <div class="container">
+                <div class="select">
+                  <select ng-model="chart_verdict_select.options" ng-change="load_graph_verdict()" ng-options="chart_type as chart_type for chart_type in chart_types">
+                  </select>
+                </div>
+                <div google-chart chart="chart_verdict" style="height:400px; width:100%;"></div>
+              </div>
+
+              <div class="container">
+                <div class="select">
+                  <select ng-model="chart_tags_select.options" ng-change="load_graph_tags()" ng-options="chart_type as chart_type for chart_type in chart_types">
+                  </select>
+                </div>
+                <div google-chart chart="chart_tags" style="height:400px; width:100%;"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="container">
+
+              <h1 class="section-title">Contest metrics</h1>
+              <h2 class="subtitle">
+                These are metrics from CF ranked contests.
+              </h2>
+
+              <div class="container">
+                <div class="select">
+                  <select ng-model="chart_contests_select.options" ng-change="load_graph_contests()" ng-options="contest_metric as contest_metric for contest_metric in contest_metrics">
+                  </select>
+                </div>
+                <div google-chart chart="chart_contests" class="top-space" style="height:400px; width:100%;"></div>
+              </div>
+            </div>
+          </section>
+
+      </div>
+    </div>
+  </section>
+
 </div>
