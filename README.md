@@ -1,4 +1,6 @@
-# cf-analytics
+# cf-analytics [WIP]
+
+Available at [cf-analytics.heroku.com](cf-analytics.heroku.com) 
 
 Check your Codeforces metrics!
 
